@@ -1,4 +1,4 @@
-{% extends "base.htm.j2" %}
+{% extends "base.html" %}
 
 {% block title %}Spreading Thankfulness in Open Source{% endblock %}
 
@@ -32,52 +32,10 @@
         <p>
             Create an account to receive emails when users of your open source project say thanks!
         </p>
-
         {# GitHub Auth button #}
-
-        <script src="https://cdn.auth0.com/js/lock/10.5/lock.min.js"></script>
-        <script>
-            var options_signup = {
-              theme: {
-                logo: '{{ url_for('static', filename='images/owly.svg') }}',
-                primaryColor: '#3ac025',
-              },
-              allowSignUp: true,
-              allowLogin: false,
-              auth: {
-                redirectUrl: '{{ callback_url }}',
-                params: {
-                  scope: 'openid email name picture'
-                },
-              }
-            }
-
-            var options_singin = {
-              theme: {
-                logo: '{{ url_for('static', filename='images/owly.svg') }}',
-                primaryColor: '#3ac025'
-              },
-              allowSignUp: false,
-              allowLogin: true,
-              auth: {
-                redirectUrl: '{{ callback_url }}',
-                params: {
-                  scope: 'openid email name picture'
-                }
-              }
-            }
-            var lock1 = new Auth0Lock('{{ auth_id }}', '{{ auth_domain }}', options_signup);
-            var lock2 = new Auth0Lock('{{ auth_id }}', '{{ auth_domain }}', options_singin);
-        </script>
-
-
-
-        <button class="button button-primary" type="submit" onClick="lock1.show();">Create Your Thankfulness Inbox</button>
-
+        <a class="button" href="/register">Create Your Thankfulness Inbox</a>
         <span>or...</span>
-
-        <button class="button" type="submit" onClick="lock2.show();">Access Your Thankfulness Inbox</button>
-
+        <a class="button" href="/login">Access Your Thankfulness Inbox</a>
     </div>
     </div>
 

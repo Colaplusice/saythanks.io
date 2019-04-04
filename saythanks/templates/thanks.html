@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Say Thank You{% endblock %}
+
+{% block content %}
+
+
+<div class="sixteen columns">
+    <div class="eight columns offset-by-one">
+
+<h4>Thanks for spreading positivity!</h4>
+
+<p>You can create your own thankfulness inbox by visiting <a href="https://saythanks.io/"><strong>SayThanks.io</strong></a> or clicking below!</p>
+
+<p style="text-align:center;">
+<img style="height: 25rem; margin-left: auto; margin-right: auto; " src="{{ url_for('static', filename='images/inbox.png') }}" alt="Thankfulness Inbox of Love">
+</p>
+<hr>
+  <a class="button" href="/register">Create Your Thankfulness Inbox</a>
+        <span>or...</span>
+        <a class="button" href="/login">Access Your Thankfulness Inbox</a>
+<hr>
+<p>Thanks for helping to make the world a little bit of a better place! :)</p>
+
+<hr>
+<p>Help support this service! Bitcoin: <code>1Me2iXTJ91FYZhrGvaGaRDCBtnZ4KdxCug</code>, Ether: <code>0x26eCf5910d7b5BF86fC1f19953E87F6835ef8715</code>.</p>
+
+</div>
+</div>
+{% endblock %}

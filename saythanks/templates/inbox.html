@@ -1,4 +1,4 @@
-{% extends "base.htm.j2" %}
+{% extends "base.html" %}
 
 {% block title %}Say Thank You{% endblock %}
 
@@ -26,11 +26,11 @@
 </div>
 
 <img class="avatar" style="border-radius: 50%;" src="{{user['picture']}}"/ width=100px;>
-<h2>Welcome, {{ inbox.email }}!</h2>
+<h2>Welcome, {{ user.email }}!</h2>
 
 <p>
     You may now direct your users (in a README or documentation, for example)
-    to <a href="{{ url_for('display_submit_note', inbox=user['nickname'])}}">this URL</a>, where they can submit a note of thankfulness:
+    to <a href="{{ url_for('display_submit_note', nickname=user['nickname'])}}">this URL</a>, where they can submit a note of thankfulness:
 </p>
 <hr>
 
@@ -42,7 +42,7 @@
   </div>
 
   <div class="three columns">
-  <a href="{{ url_for('display_submit_note', inbox=user['nickname'])}}">
+  <a href="{{ url_for('display_submit_note', nickname=user['nickname'])}}">
       <button class="button">
           Say Thanks!
       </button>
@@ -56,25 +56,20 @@
   </div>
 
   <div style="margin-top: 0.5em;">
-  <a href="{{ url_for('display_submit_note', inbox=user['nickname'])}}">
+  <a href="{{ url_for('display_submit_note', nickname=user['nickname'])}}">
       Say Thanks!
   </a>
   </div>
-
-
 </div>
-
 <hr>
-
 <hr>
-
 <hr>
 <p style="text-align: center;">
   <h3>Notes of Thankfulness:</h3>
 </p>
 
 
-<table class='u-full-width'>
+<table class='u-full-width' style="">
   <thead>
     <tr>
       <th>Share URL</th>
@@ -86,18 +81,21 @@
   <tbody>
   {% for note in notes %}
     <tr>
-      <td width='50px'><pre class='note'><strong><a class="share" href="{{ url_for('share_note', uuid=note.uuid)}}">🔗</a></strong></pre></td>
-      <td><pre class='note' width=180>{{ note.body }}</pre></td>
+      <td width='50px'><pre class='note'><strong><a class="share" href="{{ url_for('share_note', uuid=note.id)}}">🔗</a></strong></pre></td>
+      <td><pre class='note' width=180 >{{ note.body }}</pre></td>
       <td width='300px'><pre class='note'><strong>— {{ note.byline }}</strong></pre></td>
-      <td width='50px'><pre class='note'><strong><a class="share" href="{{ url_for('archive_note', uuid=note.uuid)}}">♻</a></strong></pre></td>
+      <td width='50px'><pre class='note'><strong><a class="share" href="{{ url_for('archive_note', uuid=note.id)}}">♻</a></strong></pre></td>
     </tr>
   {% endfor %}
-
     <tr>
-      <td><pre class='note'></pre></td>
+      <td colspan=""><pre class='note'></pre></td>
       <td><pre class='note'>Thanks for using SayThanks.io! :)</pre></td>
-      <td><pre class='note'>Kenneth Reitz & Team</pre></td>
+      <td colspan="2"><pre class='note'>Kenneth Reitz & Team</pre></td>
     </tr>
+  <tr>
+      <td colspan="3"><button class="button">prev</button></td>
+      <td><button class="button">next</button></td>
+  </tr>
   </tbody>
 </table>
 

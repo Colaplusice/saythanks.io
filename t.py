@@ -1,7 +1,11 @@
 import os
-import saythanks
 
-is_test_run = 'TEST' in os.environ
+from saythanks import app
 
-if __name__ == '__main__' and not is_test_run:
-    saythanks.app.run()
+is_test_run = "TEST" in os.environ
+
+if __name__ == "__main__" and not is_test_run:
+    app = app.app
+    app.run()
+
+

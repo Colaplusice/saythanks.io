@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <form action="/register" method="post" class="formula">
+            <table align="center">
+                <tr>
+                    <td>
+                        <label for="" class="label-body">nickname</label>
+                    </td>
+                    <td>
+                        <input type="text" name="nickname" class="noteinput" placeholder="nickname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">password</label>
+                    </td>
+                    <td>
+                        <input type="password"  name="password" class="noteinput" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">email:</label>
+                    </td>
+                    <td>
+                        <input type="email" name="email" class="noteinput" placeholder="">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">profile</label> </td>
+                    <td>
+                        <textarea name="profile" class="form-control u-full-width note noteinput">
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="button button-primary">register</button>
+                    </td>
+                    <td>
+                        <button href="/login" class="button">have a account ?</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}
