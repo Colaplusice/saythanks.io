@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-07 13:09+0800\n"
+"POT-Creation-Date: 2019-04-07 13:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 
 #: saythanks/templates/base.html:6
 msgid " SayThanks.io"
+msgstr ""
+
+#: saythanks/templates/base.html:46
+msgid "The Say Thanks Project ."
 msgstr ""
 
 #: saythanks/templates/index.html:2 saythanks/templates/index.html:4
@@ -73,5 +77,23 @@ msgstr ""
 
 #: saythanks/templates/index.html:41
 msgid "on GitHub"
+msgstr ""
+
+#: saythanks/templates/index.html:43
+msgid "Oh, and if you like this project, try"
+msgstr ""
+
+#: saythanks/templates/index.html:43
+msgid "saying thanks"
+msgstr ""
+
+#: saythanks/templates/index.html:43
+msgid ""
+"to its\n"
+"        creator!"
+msgstr ""
+
+#: saythanks/templates/index.html:44
+msgid "send him bitcoins"
 msgstr ""
 

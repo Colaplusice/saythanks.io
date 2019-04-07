@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-07 13:18+0800\n"
+"POT-Creation-Date: 2019-04-07 13:37+0800\n"
 "PO-Revision-Date: 2019-04-07 12:52+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -23,20 +23,8 @@ msgid " SayThanks.io"
 msgstr "感谢有你"
 
 #: saythanks/templates/base.html:46
-msgid "The"
-msgstr ""
-
-#: saythanks/templates/base.html:46
-msgid "Say Thanks"
-msgstr ""
-
-#: saythanks/templates/base.html:46
-msgid "Project"
-msgstr ""
-
-#: saythanks/templates/base.html:46
-msgid "."
-msgstr ""
+msgid "The Say Thanks Project ."
+msgstr "感谢有你项目"
 
 #: saythanks/templates/index.html:2 saythanks/templates/index.html:4
 msgid "Spreading Thankfulness in Open Source"
@@ -52,17 +40,17 @@ msgid ""
 "projects&mdash;\n"
 "         it encourages users to send a simple thank you note to you, the "
 "creator of that project."
-msgstr "在你的开源项目中加入一个简单的url，它会鼓励用户们向你表达谢意"
+msgstr "在你的开源项目中加入一个简单的url，它会鼓励用户们向你表达谢意: 作为开源项目的创建者。"
 
 #: saythanks/templates/index.html:11
 msgid "This simple link can be added to READMEs and project documentation."
-msgstr "链接可以放在readme文档中"
+msgstr "链接可以放在readme文档中。"
 
 #: saythanks/templates/index.html:14
 msgid ""
 "Then, you can enjoy a nice inbox of very small but thoughtful messages"
 "        from the happy users of the software that you've toiled over. :)"
-msgstr "然后你就可以收到简单而有意义的感谢从那些使用你项目的人那里"
+msgstr "然后你就可以收到简单但有意义的感谢从那些使用你项目的人那里 :)"
 
 #: saythanks/templates/index.html:27
 msgid "Register Your Inbox of Thankfulness"
@@ -91,4 +79,22 @@ msgstr "这是一个开源项目，它还在被活跃的维护和更新"
 #: saythanks/templates/index.html:41
 msgid "on GitHub"
 msgstr "在GitHub上"
+
+#: saythanks/templates/index.html:43
+msgid "Oh, and if you like this project, try"
+msgstr "哦，如果你喜欢这个项目，请"
+
+#: saythanks/templates/index.html:43
+msgid "saying thanks"
+msgstr "说谢谢你!"
+
+#: saythanks/templates/index.html:43
+msgid ""
+"to its\n"
+"        creator!"
+msgstr "向项目的创建者"
+
+#: saythanks/templates/index.html:44
+msgid "send him bitcoins"
+msgstr "赠送他比特币 :)"
 
