@@ -9,12 +9,12 @@
 import os
 from functools import wraps
 
-from flask import Flask, request, session, render_template, url_for
+from flask import Flask, request, session, render_template, url_for,g
 from flask import abort, redirect, Markup, make_response
 from flask_common import Common
 from names import get_full_name
 
-from .extensions import db, mail
+from .extensions import db, mail, babel
 from .models import Note, User
 
 # from raven.contrib.flask import Sentry
@@ -23,8 +23,7 @@ from .models import Note, User
 # ------------------
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("APP_SECRET", "CHANGEME")
-app.debug = True
+app.secret_key = os.environ.get("APP_SECRET")
 
 
 class Config:
@@ -32,15 +31,29 @@ class Config:
     MAIL_PORT = 465
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
+    LANGUAGES = ['en', 'zh']
     # note: in debug mode when app created, this variable
     # will reload from .env. but production mode will not
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_SENDER = os.environ.get('MAIL_SENDER')
-    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_SENDER = os.environ.get("MAIL_SENDER")
+    MAIL_SERVER = os.environ.get("MAIL_SERVER")
 
 
-app.config.from_object(Config)
+class ProductionConfig(Config):
+    DATABASE_USER = os.environ.get("DATABASE_USER")
+    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+    DATABASE_URL = "postgresql://{user}:{password}@db/say_thanks".format(
+        user=DATABASE_USER, password=DATABASE_PASSWORD
+    )
+
+
+print("test env: ", os.environ.get("MAIL_SENDER"))
+
+if app.env == "production":
+    app.config.from_object(ProductionConfig)
+else:
+    app.config.from_object(Config)
 res = mail.init_app(app)
 # Flask-Common.
 common = Common(app)
@@ -52,7 +65,25 @@ auth_callback_url = "locahost:5000/callback"
 
 # DATABASE
 db.init_app(app)
-db.database.create_tables([User, Note])
+
+# db.database.create_tables([User, Note])
+
+
+# babel
+# app.config.from_pyfile('babel.cfg')
+babel.init_app(app)
+
+
+@babel.localeselector
+def get_locale():
+    # if a user is logged in, use the locale from the user settings
+    user = getattr(g, 'user', None)
+    if user is not None:
+        return user.locale
+    # otherwise try to guess the language from the user accept
+    # header the browser transmits.  We support de/fr/en in this
+    # example.  The best match wins.
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 def requires_auth(f):
@@ -134,7 +165,7 @@ def archived_inbox():
     # Auth0 stored account information.
     # Grab the inbox from the database.
     user = User.get_by_nickname(session["nickname"])
-    archived_notes = Note.get_archived_notes(session['nickname'])
+    archived_notes = Note.get_archived_notes(session["nickname"])
     is_enabled = user.is_enabled
     is_email_enabled = user.is_email_enabled
     # Send over the list of all given notes for the user.
@@ -246,7 +277,3 @@ def callback_handling():
     session["nickname"] = nickname
     User.get_or_create()
     return redirect(url_for("inbox"))
-
-
-if __name__ == "__main__":
-    app.run()

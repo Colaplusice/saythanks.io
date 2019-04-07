@@ -1,0 +1,77 @@
+# Translations template for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-04-07 13:09+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: saythanks/templates/base.html:6
+msgid " SayThanks.io"
+msgstr ""
+
+#: saythanks/templates/index.html:2 saythanks/templates/index.html:4
+msgid "Spreading Thankfulness in Open Source"
+msgstr ""
+
+#: saythanks/templates/index.html:7
+msgid "SayThanks.io"
+msgstr ""
+
+#: saythanks/templates/index.html:8
+msgid ""
+" provides a handy URL for you to share with your open source "
+"projects&mdash;\n"
+"         it encourages users to send a simple thank you note to you, the "
+"creator of that project."
+msgstr ""
+
+#: saythanks/templates/index.html:11
+msgid "This simple link can be added to READMEs and project documentation."
+msgstr ""
+
+#: saythanks/templates/index.html:14
+msgid ""
+"Then, you can enjoy a nice inbox of very small but thoughtful messages"
+"        from the happy users of the software that you've toiled over. :)"
+msgstr ""
+
+#: saythanks/templates/index.html:27
+msgid "Register Your Inbox of Thankfulness"
+msgstr ""
+
+#: saythanks/templates/index.html:29
+msgid ""
+"Create an account to receive emails when users of your open source "
+"project say thanks!"
+msgstr ""
+
+#: saythanks/templates/index.html:32
+msgid "Create Your Thankfulness Inbox"
+msgstr ""
+
+#: saythanks/templates/index.html:34
+msgid "Access Your Thankfulness Inbox"
+msgstr ""
+
+#: saythanks/templates/index.html:39
+msgid ""
+"  This is an open source project, and its code is being actively\n"
+"        developed in the open"
+msgstr ""
+
+#: saythanks/templates/index.html:41
+msgid "on GitHub"
+msgstr ""
+

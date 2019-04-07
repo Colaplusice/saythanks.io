@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx/
+    ports:
+      - 80:80
+    depends_on:
+      - thanks_io
+  db:
+    image: postgres:9.4
+    volumes:
+      - /data/postgresql/data:/lib/postgresql/data
+    restart: always
+    env_file:
+      - env/psql.env
+
+  thanks_io:
+    depends_on:
+      - db
+    build: .
+    image: thanks_io:latest
+    restart: always
+    environment:
+      DB_HOST: db
+    command: bash -c "./boot.sh run"
+

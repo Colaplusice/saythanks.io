@@ -1,54 +1,46 @@
 {% extends "base.html" %}
-
-{% block title %}Spreading Thankfulness in Open Source{% endblock %}
-
-
+{% block title %}{{ _('Spreading Thankfulness in Open Source') }} {% endblock %}
 {% block content %}
-
-    <h2>Spreading Thankfulness in Open Source&trade;</h2>
-
-    <p>
-        <strong>SayThanks.io</strong> provides a handy URL for you to share
-        with your open source projects&mdash; it encourages users to send a simple thank you note to you, the creator of that project.
+    <h2>{{ _('Spreading Thankfulness in Open Source') }}&trade;</h2>
 
     <p>
-        This simple link can be added to READMEs and project documentation.
+        <strong>{{ _('SayThanks.io') }}</strong>
+        {{ _(' provides a handy URL for you to share with your open source projects&mdash;
+         it encourages users to send a simple thank you note to you, the creator of that project.') }}
+    <p>
+        {{ _('This simple link can be added to READMEs and project documentation.') }}
+    </p>
+    <p>
+        {{ _("Then, you can enjoy a nice inbox of very small but thoughtful messages\
+        from the happy users of the software that you've toiled over. :)") }}
     </p>
 
-    <p>
-        Then, you can enjoy a nice inbox of very small but thoughtful messages
-        from the happy users of the software that you've toiled over. :)
-    </p>
-
-    <hr />
+    <hr/>
 
     <div class="row">
-    <p style="text-align:center;">
-    <img style="height: 25rem; margin-left: auto; margin-right: auto; margin-bottom: -3.5em;" src="{{ url_for('static', filename='images/inbox.png') }}" alt="Thankfulness Inbox of Love">
-    </p>
-    <div class="twelve u-textcenter">
-        <h3>Register Your Inbox of Thankfulness</h3>
-
-        <p>
-            Create an account to receive emails when users of your open source project say thanks!
+        <p style="text-align:center;">
+            <img style="height: 25rem; margin-left: auto; margin-right: auto; margin-bottom: -3.5em;"
+                 src="{{ url_for('static', filename='images/inbox.png') }}" alt="Thankfulness Inbox of Love">
         </p>
-        {# GitHub Auth button #}
-        <a class="button" href="/register">Create Your Thankfulness Inbox</a>
-        <span>or...</span>
-        <a class="button" href="/login">Access Your Thankfulness Inbox</a>
-    </div>
+            
+        <div class="twelve u-textcenter">
+                    <h3>{{ _('Register Your Inbox of Thankfulness') }}</h3>
+            <p>
+                {{ _("Create an account to receive emails when users of your open source project say thanks!") }}
+            </p>
+            <a class="button" href="/register">
+                {{ _("Create Your Thankfulness Inbox") }}</a>
+            <span>or...</span>
+            <a class="button" href="/login">{{ _("Access Your Thankfulness Inbox") }}</a>
+        </div>
     </div>
-
     <hr>
-
     <p>
-        This is an open source project, and its code is being actively
-        developed in the open <a href="https://github.com/kennethreitz/saythanks.io">on GitHub</a>.
+        {{ _("  This is an open source project, and its code is being actively
+        developed in the open") }}
+        <a href="https://github.com/Colaplusice/saythanks.io">{{ _("on GitHub") }}</a>.
     </p>
-
-    <p>Oh, and if you like this project, try <a href="https://saythanks.io/to/kennethreitz">saying thanks</a> to its creator!</p> (or <a href="https://www.kennethreitz.org/bitcoin">send him bitcoins</a>!)
-
+    <p>Oh, and if you like this project, try <a href="https://saythanks.io/to/kennethreitz">saying thanks</a> to its
+        creator!</p> (or <a href="https://www.kennethreitz.org/bitcoin">send him bitcoins</a>!)
     <hr>
-
-
 {% endblock %}

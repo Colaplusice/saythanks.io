@@ -45,6 +45,20 @@ toil over.
 - [Say Thanks for Package Control](https://packagecontrol.io/say_thanks)
 - [Random 'Thanks' Issue on GH](https://github.com/foxmask/wallabag_api/issues/1)
 
+## use babel
+
+1. init_app and  make a babel.cfg
+2. use babel syntax in jinjia template like `{{  _(' SayThanks.io') }}`
+3. pybabel extract -F babel.cfg -k _l -o messages.pot.
+collect translate item in workdir defined in babel.cfg
+4. pybabel init -i messages.pot -d saythanks/translations -l zh
+5. pybabel compile -d saythanks/translations
+
+## if want to update
+
+- pybabel extract -F babel.cfg -k _l -o messages.pot .
+- pybabel update -i messages.pot -d saythanks/translations
+
 ## Oh, Thanks!
 
 By the way... thank you! And if you'd like to [say thanks](https://saythanks.io/to/kennethreitz)... :) 
